@@ -11,7 +11,7 @@ chmod +x update.sh
 curl -fsSL https://get.docker.com -o get-docker.sh
 sudo sh get-docker.sh
 rm get-docker.sh
-sudo usermod -aG docker $USER
+sudo usermod -aG docker $USER && newgrp docker
 
 #install nodejs
 curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash - &&\
@@ -23,6 +23,11 @@ sudo apt install -y python3-pip build-essential libssl-dev libffi-dev python3-de
 # install nvim
 chmod +x nvim-setup.sh
 ./nvim-setup.sh
+
+# install kubectl
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+
 
 # install minikube
 chmod +x minikube-install.sh
