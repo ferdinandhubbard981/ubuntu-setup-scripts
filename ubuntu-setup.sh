@@ -23,3 +23,7 @@ sudo apt install -y python3-pip build-essential libssl-dev libffi-dev python3-de
 # install nvim
 chmod +x nvim-setup.sh
 ./nvim-setup.sh
+
+# install minikube
+chmod +x minikube-install.sh
+./minikube-install.sh
